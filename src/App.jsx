@@ -15,7 +15,7 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import Logo from "./Users/supernnnew/Downloads/rangsitU.png";
+import Logo from "/Users/supernnnew/Downloads/rangsitU.png";
 import Image from "@mui/material/Image";
 
 const theme = createTheme({
