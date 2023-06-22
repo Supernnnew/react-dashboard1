@@ -42,14 +42,14 @@ function App() {
               <MenuIcon />
             </IconButton>
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-              News
+              Rangsit University
             </Typography>
             <Button color="inherit">Login</Button>
           </Toolbar>
         </AppBar>
       </Box>
-      <h1>6403019 Dashboard</h1>
-      <h2>ตารางลูกค้า</h2>
+      <h1>RFID</h1>
+      <h2>ตารางบันทึกการเข้าใช้งาน</h2>
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
