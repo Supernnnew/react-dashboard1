@@ -15,6 +15,8 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import Logo from "./Users/supernnnew/Downloads/rangsitU.png";
+import Image from "@mui/material/Image";
 
 const theme = createTheme({
   palette: {
@@ -57,6 +59,11 @@ function App() {
               <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                 Rangsit University
               </Typography>
+              <Image
+                src={Logo}
+                alt="Logo"
+                sx={{ width: 40, height: 40, marginRight: "auto" }}
+              />
               <Button color="inherit">Login</Button>
             </Toolbar>
           </AppBar>
