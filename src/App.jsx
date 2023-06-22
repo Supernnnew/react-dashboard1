@@ -17,8 +17,6 @@ import Paper from "@mui/material/Paper";
 
 function App() {
   const [customers, setCustomers] = useState([]);
-  const [products, setProducts] = useState([]);
-  const [topproducts, setTopProducts] = useState([]);
 
   useEffect(() => {
     axios
@@ -26,16 +24,6 @@ function App() {
       .then((res) => {
         console.log(res.data);
         setCustomers(res.data);
-      });
-    axios.get("https://dull-erin-cocoon-ring.cyclic.app/stocks").then((res) => {
-      console.log(res.data);
-      setProducts(res.data);
-    });
-    axios
-      .get("https://dull-erin-cocoon-ring.cyclic.app/top_products")
-      .then((res) => {
-        console.log(res.data);
-        setTopProducts(res.data);
       });
   }, []);
 
@@ -67,87 +55,24 @@ function App() {
           <TableHead>
             <TableRow>
               <TableCell>ID</TableCell>
-              <TableCell>ชื่อจริง</TableCell>
-              <TableCell>นามสกุล</TableCell>
-              <TableCell>Email</TableCell>
-              <TableCell>Address</TableCell>
-              <TableCell>Tel</TableCell>
+              <TableCell>IDCARD</TableCell>
+              <TableCell>IDStudent</TableCell>
+              <TableCell>ชื่อ</TableCell>
+              <TableCell>ห้อง</TableCell>
+              <TableCell>เวลา</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {customers.map((customer) => (
               <TableRow key={customer.id}>
                 <TableCell component="th" scope="row">
-                  {customer.customer_id}
+                  {customer.id}
                 </TableCell>
-                <TableCell>{customer.firstname}</TableCell>
-                <TableCell>{customer.lastname}</TableCell>
-                <TableCell>{customer.email}</TableCell>
-                <TableCell>{customer.address}</TableCell>
-                <TableCell>{customer.tel}</TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
-
-      <h2>ตารางสินค้า</h2>
-      <TableContainer component={Paper}>
-        <Table sx={{ minWidth: 650 }} aria-label="simple table">
-          <TableHead>
-            <TableRow>
-              <TableCell>IDสินค้า</TableCell>
-              <TableCell>รุ่นคอม</TableCell>
-              <TableCell>รูปแบบ</TableCell>
-              <TableCell>ราคา</TableCell>
-              <TableCell>สี</TableCell>
-              <TableCell>ยี่ห้อ</TableCell>
-              <TableCell>ขนาดจอ</TableCell>
-              <TableCell>น้ำหนัก</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {products.map((product) => (
-              <TableRow key={product.id}>
-                <TableCell component="th" scope="row">
-                  {product.com_id}
-                </TableCell>
-                <TableCell>{product.com_name}</TableCell>
-                <TableCell>{product.com_type}</TableCell>
-                <TableCell>{product.price}</TableCell>
-                <TableCell>{product.color}</TableCell>
-                <TableCell>{product.brand}</TableCell>
-                <TableCell>{product.size}</TableCell>
-                <TableCell>{product.weight}</TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
-
-      <h2>ตารางสินค้าขายดี</h2>
-      <TableContainer component={Paper}>
-        <Table sx={{ minWidth: 650 }} aria-label="simple table">
-          <TableHead>
-            <TableRow>
-              <TableCell>IDสินค้า</TableCell>
-              <TableCell>ชื่อสินค้า</TableCell>
-              <TableCell>รูปแบบ</TableCell>
-              <TableCell>ราคา</TableCell>
-              <TableCell>จำนวน</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {topproducts.map((topproduct) => (
-              <TableRow key={topproduct.id}>
-                <TableCell component="th" scope="row">
-                  {topproduct.com_id}
-                </TableCell>
-                <TableCell>{topproduct.com_name}</TableCell>
-                <TableCell>{topproduct.com_type}</TableCell>
-                <TableCell>{topproduct.price}</TableCell>
-                <TableCell>{topproduct.color}</TableCell>
-                <TableCell>{topproduct.quantity}</TableCell>
+                <TableCell>{customer.uid_tag}</TableCell>
+                <TableCell>{customer.id_student}</TableCell>
+                <TableCell>{customer.name}</TableCell>
+                <TableCell>{customer.action}</TableCell>
+                <TableCell>{customer.created_at}</TableCell>
               </TableRow>
             ))}
           </TableBody>
